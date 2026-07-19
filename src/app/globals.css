@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+ * THEME TOKENS
+ * These are the only values a rebrand needs to touch for a new
+ * colour palette. Everything else in the app consumes these.
+ * ------------------------------------------------------------------ */
+:root {
+  --ink: #0c0a12;        /* base background, violet-black */
+  --surface: #171320;    /* card / panel background */
+  --surface-2: #201a2c;  /* raised surface / hover */
+  --border: #322a41;     /* hairline borders on dark */
+
+  --violet: #b24bf3;     /* primary accent */
+  --violet-dim: #7c37ab;
+  --magenta: #ff4fd8;    /* glow accent, used sparingly */
+  --gold: #e8b85c;       /* premium CTA / accepted accent */
+  --whatsapp: #25d366;   /* reserved solely for WhatsApp actions */
+
+  --paper: #f5f2fa;      /* primary text on dark */
+  --mute: #948fa3;       /* secondary text on dark */
+  --mute-2: #625c72;     /* tertiary text / placeholders */
+
+  --danger: #f26d6d;
+
+  --font-display: var(--font-anton);
+  --font-body: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-violet: var(--violet);
+  --color-violet-dim: var(--violet-dim);
+  --color-magenta: var(--magenta);
+  --color-gold: var(--gold);
+  --color-whatsapp: var(--whatsapp);
+  --color-paper: var(--paper);
+  --color-mute: var(--mute);
+  --color-mute-2: var(--mute-2);
+  --color-danger: var(--danger);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--violet);
+  color: var(--ink);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------
+ * Signature element: waveform bars used as a recurring divider /
+ * loading motif across the site.
+ * ------------------------------------------------------------------ */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+}
+
+.waveform span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--violet), var(--magenta));
+  animation: waveform-pulse 1.1s ease-in-out infinite;
+}
+
+.waveform span:nth-child(1) { height: 40%; animation-delay: 0ms; }
+.waveform span:nth-child(2) { height: 90%; animation-delay: 90ms; }
+.waveform span:nth-child(3) { height: 60%; animation-delay: 180ms; }
+.waveform span:nth-child(4) { height: 100%; animation-delay: 270ms; }
+.waveform span:nth-child(5) { height: 50%; animation-delay: 360ms; }
+.waveform span:nth-child(6) { height: 75%; animation-delay: 450ms; }
+.waveform span:nth-child(7) { height: 35%; animation-delay: 540ms; }
+
+@keyframes waveform-pulse {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waveform span {
+    animation: none;
+    transform: scaleY(0.8);
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Vinyl record signature element */
+.vinyl {
+  border-radius: 9999px;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      #1c1626 0px,
+      #1c1626 2px,
+      #241d30 3px,
+      #241d30 4px
+    );
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 30px 60px -20px rgba(178, 75, 243, 0.45),
+    0 0 120px -30px rgba(255, 79, 216, 0.35);
+  position: relative;
+}
+
+.vinyl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.08), transparent 45%);
+}
+
+.vinyl-spin {
+  animation: vinyl-spin 8s linear infinite;
+}
+
+@keyframes vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
