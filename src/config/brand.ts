@@ -32,7 +32,7 @@ export const brand = {
 
   // Location & contact
   location: "Cape Town, South Africa",
-  whatsappNumber: "27724323283s", // international format, no + or leading 0
+  whatsappNumber: "27724323283", // international format, no + or leading 0
   contactEmail: "bookings@tashriekmusic.co.za",
 
   // Images (place files in /public/images with these exact names)
@@ -45,13 +45,13 @@ export const brand = {
   latestMix: {
     title: "Latest Mix",
     embedUrl:
-      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsoundcloud%2Fsets%2Fsoundcloud-pulse-charts&color=%23b163f2&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftashriek&color=%23b163f2&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
     provider: "soundcloud" as MixProvider,
   },
 
   // Social links — leave a link blank ("") to hide that icon
   socials: {
-    instagram: "https://instagram.com/tashriekmusic",
+    instagram: "https://instagram.com/tashriekmusic.exe",
     tiktok: "https://tiktok.com/@tashriekmusic",
     youtube: "https://youtube.com/@tashriekmusic",
     facebook: "",

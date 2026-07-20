@@ -27,7 +27,7 @@ export default function LatestMix() {
             title={latestMix.title}
             src={latestMix.embedUrl}
             width="100%"
-            height={isVideo ? "100%" : 166}
+            height={isVideo ? "100%" : 300}
             allow="autoplay"
             loading="lazy"
             className="block"
